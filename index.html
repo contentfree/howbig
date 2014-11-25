@@ -9,18 +9,19 @@
       #howbig-display { width: 100vw; height: 100vh; background: gray;}
       #howbig-display span { width: 100vw; font-size: 18pt; line-height: 100vh; text-align: center; display: inline-block; color: white;}
     </style>
-    <!--script src="javascripts/scale.fix.js"></script-->
   </head>
   <body>
     <div id="howbig-display"><span></span></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//raw.githubusercontent.com/gajus/scream/master/dist/scream.min.js"></script>
     <script>
       jQuery.noConflict();
       (function($) {
         $(document).ready(function(){
           var display = $('#howbig-display'),
               text    = $(display.children()[0]);
-          text.text(display.width() + 'x' + display.height());
+          //text.text(display.width() + 'x' + display.height());
+          text.text(scream.getViewportWidth() + 'x' + scream.getViewportHeight());
         })
       })(jQuery)
     </script>
